@@ -1,5 +1,6 @@
 import Link from "next/link";
 import React from "react";
+/* eslint-disable @next/next/no-img-element */
 
 export default function Sidebar({ sidebarOpen }: { sidebarOpen: boolean }) {
   const contacts: [string, string, string?][] = [

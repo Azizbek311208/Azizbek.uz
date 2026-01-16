@@ -41,7 +41,7 @@ export default function Sidebar({ sidebarOpen }: { sidebarOpen: boolean }) {
     >
       <div className="flex flex-col h-full px-6 py-5 overflow-y-auto overflow-x-hidden">
         <img
-          src="/AzizbekPic.jpg"
+          src="/AzizbekPIC.jpg"
           alt="Azizbek Fayziyev"
           className="
             w-[220px] h-[220px]

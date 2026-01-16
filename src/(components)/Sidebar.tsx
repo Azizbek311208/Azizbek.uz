@@ -1,70 +1,96 @@
+import Link from "next/link";
 import React from "react";
 
-export default function Sidebar({
-  sidebarOpen,
-  setSidebarOpen,
-}: {
-  sidebarOpen: boolean;
-  setSidebarOpen: React.Dispatch<React.SetStateAction<boolean>>;
-}) {
+export default function Sidebar({ sidebarOpen }: { sidebarOpen: boolean }) {
+  const contacts: [string, string, string?][] = [
+    [
+      "/gmail.png",
+      "azizbekfayziyev244@gmail.com",
+      "mailto:azizbekfayziyev244@gmail.com",
+    ],
+    ["/github.png", "github.com/Azizbek311208", "https://github.com/Azizbek311208"],
+    ["/telegram.png", "t.me/Azizbek_3112", "https://t.me/Azizbek_3112"],
+    ["/tel.png", "+998 (99) 769-31-12", "tel:+998997693112"],
+    [
+      "/instagram.png",
+      "instagram.com/azizbek_3112_",
+      "https://www.instagram.com/azizbek3112_/",
+    ],
+    [
+      "/twitterX.png",
+      "twitter.com/Azizbek_3112",
+      "https://x.com/Azizbek_3112",
+    ],
+    [
+      "/linkedin.png",
+      "linkedin.com/in/azizbek-fayziyev-7243a43a4",
+      "https://www.linkedin.com/in/azizbek-fayziyev-7243a43a4/",
+    ],
+  ];
+
   return (
     <aside
-      className={`fixed top-[68px] left-0 h-dvh bg-[#1A1A1A] text-white p-6 
-      border-r border-[#2A2A2A] overflow-y-auto transition-all duration-300
-      ${sidebarOpen ? "w-[287px]" : "w-0"}`}
+      className={`
+        fixed top-[72px] left-0 z-40
+        h-[calc(100vh-72px)] w-[300px]
+        bg-[#111827] border-r border-white/10
+        transition-transform duration-300 ease-in-out
+        ${sidebarOpen ? "translate-x-0" : "-translate-x-full"}
+      `}
     >
-      <div className="flex justify-end mb-3">
-        <button
-          className="text-white text-2xl"
-          onClick={() => setSidebarOpen(!sidebarOpen)}
-        >
-          {sidebarOpen ? "☰" : "☰"}
-        </button>
-      </div>
+      <div className="flex flex-col h-full px-6 py-5 overflow-y-auto overflow-x-hidden">
+        <img
+          src="/xello.png"
+          alt="Azizbek Fayziyev"
+          className="
+            w-[220px] h-[220px]
+            object-cover rounded-2xl
+            mx-auto border border-white/10 shadow-xl
+          "
+        />
 
-      {sidebarOpen && (
-        <>
-          <img
-            src="/xello.png"
-            alt="profile"
-            className="w-[240px] h-[240px] object-cover rounded-md mx-auto"
-          />
+        <h2 className="mt-2 text-center text-xl font-semibold text-white">
+          Azizbek Fayziyev
+        </h2>
 
-          <h2 className="text-center mt-4">Azizbek Fayziyev</h2>
-
-          <div className="flex flex-wrap justify-center gap-2 mt-3 mb-6">
-            <span className="bg-[#2A2A2A] px-3 py-1 rounded-full text-sm">
-              Veb dasturchi
+        <div className="flex flex-wrap justify-center gap-2 mt-4">
+          {["Frontend Developer", "Web Developer", "Junior"].map((tag) => (
+            <span
+              key={tag}
+              className="
+                px-3 py-1 rounded-full text-xs
+                bg-white/5 border border-white/10
+                text-[#9CA3AF]
+              "
+            >
+              {tag}
             </span>
-            <span className="bg-[#2A2A2A] px-3 py-1 rounded-full text-sm">Odam</span>
-            <span className="bg-[#2A2A2A] px-3 py-1 rounded-full text-sm">Dizayner</span>
-            <span className="bg-[#2A2A2A] px-3 py-1 rounded-full text-sm">Junior</span>
-          </div>
+          ))}
+        </div>
 
-   
-          <div className="flex flex-col space-y-4 text-[14px] w-full">
-            <div className="flex items-center gap-3">
-              <img src="/gmail.png" className="w-6" />
-              <span className="text-gray-300">azizbekfayziyev244@gmail.com</span>
-            </div>
+        <div className="mt-6 space-y-4 text-sm">
+        {contacts.map(([icon, text, link]) => (
+  <div key={text} className="flex items-center gap-3 text-[#9CA3AF]">
+    <img src={icon} className="w-5 opacity-80 flex-shrink-0" />
+    {link ? (
+      <Link
+        href={link}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="truncate overflow-hidden whitespace-nowrap max-w-[180px] block"
+      >
+        {text}
+      </Link>
+    ) : (
+      <span className="truncate overflow-hidden whitespace-nowrap max-w-[180px] block">
+        {text}
+      </span>
+    )}
+  </div>
+))}
 
-            <div className="flex items-center gap-3">
-              <img src="/github.png" className="w-6" />
-              <span className="text-gray-300">github.com/azizbekuz</span>
-            </div>
-
-            <div className="flex items-center gap-3">
-              <img src="/telegram.png" className="w-6" />
-              <span className="text-gray-300">t.me/Azizbek3112</span>
-            </div>
-
-            <div className="flex items-center gap-3">
-              <img src="/tel.png" className="w-6" />
-              <span className="text-gray-300">+998 (99) 769-31-12</span>
-            </div>
-          </div>
-        </>
-      )}
+        </div>
+      </div>
     </aside>
   );
 }

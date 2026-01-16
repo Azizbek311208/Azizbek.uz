@@ -1,5 +1,5 @@
 import React from "react";
-import { FaSearch, FaGem, FaPaintBrush, FaBolt } from "react-icons/fa"; // icons for skills
+import { FaSearch, FaGem, FaPaintBrush, FaBolt } from "react-icons/fa";
 
 const tools = [
   { name: "HTML", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" },
@@ -7,71 +7,81 @@ const tools = [
   { name: "JavaScript", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" },
   { name: "Figma", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" },
   { name: "React", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
-  { name: "Tailwind", logo: "https://tailwindcss.com/_next/static/media/tailwindcss-mark.2a046c3e.svg" },
+  { name: "Next.js", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" },
+  { name: "Tailwind", logo: "https://logo.svgcdn.com/bxl/tailwind-css-dark.svg" },
+  { name: "Bootstrap", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" },
   { name: "Sass", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sass/sass-original.svg" },
+  { name: "Firebase", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg" },
   { name: "VS Code", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" },
 ];
 
+
+
 const skills = [
-  { name: "SEO", description: "Qidiruv tizimining natijalarida sayt reytingini yaxshilash", icon: <FaSearch size={28} /> },
-  { name: "Dizayn", description: "Kuchli dizayn va kichik detallarigacha e'tibor berish", icon: <FaPaintBrush size={28} /> },
-  { name: "Sifat", description: "Yuqori darajada saytlarni sifatli ishlab chiqish", icon: <FaGem size={28} /> },
-  { name: "Tezkorlik", description: "Qisqa muddat ichida tezkor sayt ishlab chiqish", icon: <FaBolt size={28} /> },
+  { name: "SEO", description: "Improving website ranking in search engine results", icon: <FaSearch size={28} /> },
+  { name: "Design", description: "Strong design skills with attention to even the smallest details", icon: <FaPaintBrush size={28} /> },
+  { name: "Quality", description: "Developing websites with high standards and quality", icon: <FaGem size={28} /> },
+  { name: "Speed", description: "Delivering websites quickly within short deadlines", icon: <FaBolt size={28} /> },
 ];
 
-export default function AboutSection({ sidebarOpen }: { sidebarOpen: boolean }) {
+
+export default function AboutSection() {
   return (
-    <main
-      className={`transition-all duration-300 flex-1 min-h-screen px-20 py-10
-        ${sidebarOpen ? "ml-[287px]" : "ml-0"}`}
+    <section
+      className="min-h-screen px-6 py-10 md:px-20"
       style={{
         backgroundImage: `url('/back.png')`,
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
     >
-    
-      <div className=" w-full h-full px-4 py-10">
-        <div className="max-w-[800px] mx-auto">
-          <h1 className="text-[36px] font-bold mb-8 mt-3 text-white">Men haqimda</h1>
-          <p className="text-gray-300 leading-relaxed text-[16px] mb-12">
-            Men Azizbek Fayziyev, 17 yoshda, Buxoro viloyati, Romitan tumanida tug‘ilganman. Men veb dasturchiman va zamonaviy, funksional va foydalanuvchilarga qulay saytlar yaratishga qiziqaman. Hozirgacha men bir nechta loyihalar ustida ishladim, jumladan shaxsiy portfel saytim va bir nechta kichik bizneslar uchun veb-saytlar yaratdim. Mening maqsadim har bir loyihani foydalanuvchilar uchun tezkor, intuitiv va estetik jihatdan yoqimli qilishdir. Texnologiyalar bilan ishlashni va yangi imkoniyatlarni o‘rganishni yaxshi ko‘raman. Agar mening loyihalarim sizni qiziqtirsa, “Loyihalar” sahifasiga tashrif buyurishingiz mumkin.
-          </p>
+      <div className="max-w-[900px] mx-auto">
+        <h1 className="text-[36px] font-bold mb-8 mt-3">About me</h1>
 
-          <div className="mb-12">
-            <h2 className="text-[24px] font-semibold mb-6 text-white">Asbob-uskunalar</h2>
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-6">
-              {tools.map((tool) => (
-                <div
-                  key={tool.name}
-                  className="flex flex-col items-center justify-center p-6 bg-[#1A1A1A]/90 rounded-lg border border-[#2A2A2A] hover:scale-105 transition-transform"
-                >
-                  <img src={tool.logo} alt={tool.name} className="w-12 h-12 mb-4" />
-                  <span className="text-white text-sm font-medium">{tool.name}</span>
-                </div>
-              ))}
-            </div>
-          </div>
+        <p className="text-gray-300 leading-relaxed mb-12">
+ 
+I’m Azizbek Fayziyev, a 17-year-old Frontend Developer from Bukhara, Uzbekistan. I’m passionate about building modern, responsive, and user-friendly web interfaces that combine clean design with solid functionality.
 
-          <div className="mb-12">
-            <h2 className="text-[24px] font-semibold mb-6 text-white">Men nimalar qila olaman</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              {skills.map((skill) => (
-                <div
-                  key={skill.name}
-                  className="flex items-start gap-4 p-6 bg-[#1A1A1A]/90 rounded-lg border border-[#2A2A2A] hover:scale-105 transition-transform"
-                >
-                  <div className="text-green-400">{skill.icon}</div>
-                  <div>
-                    <h3 className="font-semibold text-lg mb-1 text-white">{skill.name}</h3>
-                    <p className="text-gray-300 text-sm">{skill.description}</p>
-                  </div>
-                </div>
-              ))}
+I mainly work with HTML, CSS, JavaScript, React, Next.js, and Tailwind CSS, and I enjoy turning ideas and designs into real, interactive websites. I pay close attention to details, performance, and usability, because I believe a good website should not only look great but also feel smooth and intuitive to use.
+
+I’m constantly learning new technologies, improving my skills, and challenging myself with real projects. As a junior developer, I’m highly motivated, open to feedback, and always ready to grow both technically and creatively.
+
+My goal is to become a strong full-stack developer and work on impactful projects that solve real problems and deliver great user experiences.
+        </p>
+
+        <h2 className="text-[24px] font-semibold mb-6">Tools</h2>
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 mb-12">
+          {tools.map((tool) => (
+            <div
+              key={tool.name}
+              className="flex flex-col items-center p-6 bg-[#1A1A1A]/90 rounded-lg border border-[#2A2A2A]"
+            >
+              <img src={tool.logo} className="w-12 h-12 mb-4" />
+              <span>{tool.name}</span>
             </div>
-          </div>
+          ))}
+        </div>
+
+        <h2 className="text-[24px] font-semibold mb-6">
+          What can I do?
+        </h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          {skills.map((skill) => (
+            <div
+              key={skill.name}
+              className="flex gap-4 p-6 bg-[#1A1A1A]/90 rounded-lg border border-[#2A2A2A]"
+            >
+              <div className="text-green-400">{skill.icon}</div>
+              <div>
+                <h3 className="font-semibold">{skill.name}</h3>
+                <p className="text-gray-300 text-sm">
+                  {skill.description}
+                </p>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
-    </main>
+    </section>
   );
 }
